@@ -1,5 +1,6 @@
 import React from 'react';
-import './Hero.css'; // Mantenha se houver
+import { motion } from 'framer-motion';
+import './Hero.css';
 
 const Hero = () => {
   return (
@@ -14,14 +15,18 @@ const Hero = () => {
       overflow: 'hidden' // Evitar barra de rolagem por causa das rotações
     }}>
       {/* Conteúdo de Texto */}
-      <div className="hero-content" style={{
+      <motion.div className="hero-content" style={{
         flex: '1.2',
         maxWidth: '700px',
         borderLeft: '4px solid var(--emerald)',
         paddingLeft: '32px',
         position: 'relative',
         zIndex: 2
-      }}>
+      }}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <h1 className="section-title" style={{ marginBottom: '24px' }}>
           Sistemas e Automações que <span className="text-emerald">Multiplicam</span> seu Resultado
         </h1>
@@ -37,10 +42,10 @@ const Hero = () => {
             Ver Casos de Sucesso
           </a>
         </div>
-      </div>
+        </motion.div>
       
       {/* Representação Visual - Dashboard Mockup */}
-      <div className="hero-visual hide-on-mobile" style={{
+      <motion.div className="hero-visual hide-on-mobile" style={{
         flex: '0.8',
         display: 'flex',
         flexDirection: 'column',
@@ -49,15 +54,21 @@ const Hero = () => {
         zIndex: 1,
         maxWidth: '450px',
         perspective: '1000px'
-      }}>
+      }}
+      initial={{ opacity: 0, scale: 0.9, x: 30 }}
+      animate={{ opacity: 1, scale: 1, x: 0 }}
+      transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+      >
         {/* Mockup Principal */}
-        <div className="premium-card" style={{
+        <motion.div className="premium-card" style={{
           padding: '24px',
-          transform: 'rotateY(-15deg) rotateX(5deg)',
           transformStyle: 'preserve-3d',
           boxShadow: '-20px 20px 40px rgba(0,0,0,0.4)',
           border: '1px solid rgba(16, 185, 129, 0.2)'
-        }}>
+        }}
+        animate={{ rotateY: [-12, -18, -12], rotateX: [3, 7, 3], y: [-5, 5, -5] }}
+        transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+        >
           <div style={{ display: 'flex', gap: '8px', marginBottom: '24px' }}>
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }}></div>
             <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#eab308' }}></div>
@@ -73,10 +84,10 @@ const Hero = () => {
               <div style={{ width: '40%', height: '6px', background: 'var(--glass-border)', borderRadius: '3px' }}></div>
             </div>
           </div>
-        </div>
+        </motion.div>
         
         {/* Mockup Secundário (Alerta de Sucesso) */}
-        <div style={{
+        <motion.div style={{
           background: 'linear-gradient(145deg, var(--deep-gray) 0%, var(--obsidian) 100%)',
           border: '1px solid var(--emerald)',
           borderRadius: '12px',
@@ -84,12 +95,14 @@ const Hero = () => {
           width: '85%',
           alignSelf: 'flex-end',
           boxShadow: '0 15px 35px rgba(16, 185, 129, 0.15)',
-          transform: 'translateZ(30px) translateY(-20px)',
           display: 'flex',
           alignItems: 'center',
           gap: '16px',
           backdropFilter: 'blur(12px)'
-        }}>
+        }}
+        animate={{ y: [-15, -25, -15], z: [25, 35, 25] }}
+        transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+        >
           <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0f1115" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
           </div>
@@ -97,8 +110,8 @@ const Hero = () => {
             <div style={{ fontSize: '1.05rem', color: 'var(--off-white)', fontWeight: '600', marginBottom: '4px' }}>Automação Concluída</div>
             <div style={{ fontSize: '0.85rem', color: 'var(--emerald)', fontWeight: '500' }}>+ R$ 2.450,00 gerados</div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

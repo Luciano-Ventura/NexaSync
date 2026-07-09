@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Process = () => {
   const steps = [
@@ -13,14 +14,29 @@ const Process = () => {
       <h2 className="section-title">Nossa Metodologia</h2>
       <p className="section-subtitle">Um processo de engenharia validado para garantir que você receba uma solução de alto nível, no prazo combinado.</p>
       
-      <div style={{
+      <motion.div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
         gap: '24px',
         marginTop: '64px'
-      }}>
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+        hidden: { opacity: 0 }
+      }}
+      >
         {steps.map((step, idx) => (
-          <div key={idx} className="premium-card" style={{ position: 'relative', overflow: 'hidden' }}>
+          <motion.div key={idx} className="premium-card" style={{ position: 'relative', overflow: 'hidden' }}
+          variants={{
+            visible: { opacity: 1, y: 0, scale: 1 },
+            hidden: { opacity: 0, y: 50, scale: 0.95 }
+          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(16, 185, 129, 0.15)" }}
+          >
             <span style={{
               position: 'absolute',
               top: '-10px',
@@ -38,9 +54,9 @@ const Process = () => {
               <h3 style={{ fontSize: '1.5rem', marginBottom: '16px', color: 'var(--emerald)' }}>{step.title}</h3>
               <p style={{ color: 'var(--muted-gray)' }}>{step.desc}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

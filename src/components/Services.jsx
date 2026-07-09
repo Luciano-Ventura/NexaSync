@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Services = () => {
   const services = [
@@ -29,13 +30,28 @@ const Services = () => {
       <h2 className="section-title">Nossas Soluções</h2>
       <p className="section-subtitle">Não vendemos tecnologia, vendemos crescimento. Nossas soluções são pensadas para resolver problemas reais de gestão e vendas.</p>
       
-      <div style={{
+      <motion.div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
         gap: '32px'
-      }}>
+      }}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+        hidden: { opacity: 0 }
+      }}
+      >
         {services.map((svc, idx) => (
-          <div key={idx} className="premium-card">
+          <motion.div key={idx} className="premium-card"
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 30 }
+          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          whileHover={{ y: -10, boxShadow: "0 25px 50px -12px rgba(16, 185, 129, 0.25)" }}
+          >
             <h3 style={{ fontSize: '1.75rem', marginBottom: '16px' }}>{svc.title}</h3>
             <p style={{ color: 'var(--muted-gray)', marginBottom: '24px' }}>{svc.desc}</p>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
@@ -48,9 +64,9 @@ const Services = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

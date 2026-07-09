@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const Portfolio = () => {
   const projects = [
@@ -44,7 +45,7 @@ const Portfolio = () => {
         marginTop: '60px'
       }}>
         {projects.map((proj, idx) => (
-          <div key={idx} className="premium-card flex-col-mobile" style={{ 
+          <motion.div key={idx} className="premium-card flex-col-mobile" style={{ 
             display: 'flex', 
             flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
             alignItems: 'center', 
@@ -52,7 +53,13 @@ const Portfolio = () => {
             padding: '40px',
             borderLeft: idx % 2 === 0 ? '4px solid var(--emerald)' : 'none',
             borderRight: idx % 2 !== 0 ? '4px solid var(--emerald)' : 'none'
-          }}>
+          }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-150px" }}
+          transition={{ duration: 0.8, delay: idx * 0.1, ease: "easeOut" }}
+          whileHover={{ scale: 1.02 }}
+          >
             
             {/* Image Side */}
             <div style={{ flex: '1', width: '100%' }}>
@@ -95,7 +102,7 @@ const Portfolio = () => {
               </a>
             </div>
             
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
