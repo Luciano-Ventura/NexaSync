@@ -31,7 +31,7 @@ const Navbar = () => {
         </span>
       </div>
 
-      <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
+      <div className="hide-on-mobile" style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
         <a href="#services" style={{ fontWeight: '500' }}>Soluções</a>
         <a href="#portfolio" style={{ fontWeight: '500' }}>Casos de Sucesso</a>
         <a href="#process" style={{ fontWeight: '500' }}>Metodologia</a>

@@ -10,20 +10,22 @@ const Hero = () => {
       alignItems: 'flex-start',
       position: 'relative'
     }}>
-      <div style={{
+      <div className="hero-container" style={{
         maxWidth: '800px',
         borderLeft: '4px solid var(--emerald)',
         paddingLeft: '32px',
-        marginLeft: '-36px' // offset the border visually
+        marginLeft: '-36px', // offset the border visually
+        position: 'relative',
+        zIndex: 2
       }}>
-        <h1 className="section-title" style={{ fontSize: '4.5rem', marginBottom: '24px' }}>
+        <h1 className="section-title" style={{ marginBottom: '24px' }}>
           Sistemas e Automações que <span className="text-emerald">Multiplicam</span> seu Resultado
         </h1>
         <p className="section-subtitle" style={{ fontSize: '1.35rem', color: 'var(--off-white)', opacity: 0.9 }}>
           A NexaSync transforma operações estagnadas em negócios previsíveis e escaláveis. 
           Sem templates. Sem jargão técnico. Entregamos a máquina de vendas e gestão que sua empresa precisa.
         </p>
-        <div style={{ display: 'flex', gap: '16px', marginTop: '40px' }}>
+        <div className="hero-buttons" style={{ display: 'flex', gap: '16px', marginTop: '40px' }}>
           <a href="#contact" className="btn-primary">
             Agendar Diagnóstico Gratuito
           </a>
@@ -34,7 +36,7 @@ const Hero = () => {
       </div>
       
       {/* Visual representation on the right side */}
-      <div style={{
+      <div className="hide-on-mobile" style={{
         position: 'absolute',
         right: '5%',
         top: '50%',

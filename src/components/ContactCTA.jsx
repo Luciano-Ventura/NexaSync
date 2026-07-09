@@ -31,7 +31,7 @@ const ContactCTA = () => {
         </a>
       </div>
 
-      <footer style={{ marginTop: '40px', color: 'var(--muted-gray)', fontSize: '0.9rem', width: '100%', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid var(--glass-border)', paddingTop: '24px' }}>
+      <footer style={{ marginTop: '40px', color: 'var(--muted-gray)', fontSize: '0.9rem', width: '100%', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '16px', borderTop: '1px solid var(--glass-border)', paddingTop: '24px' }}>
         <p>&copy; {new Date().getFullYear()} NexaSync. Todos os direitos reservados.</p>
         <div style={{ display: 'flex', gap: '24px' }}>
           <a href="#" style={{ hover: { color: 'var(--emerald)' }}}>Instagram</a>
