@@ -1,0 +1,225 @@
+.portfolio-section {
+  padding: 100px 0;
+  overflow: hidden;
+  background: var(--bg-dark);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 20px;
+}
+
+.section-subtitle {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: -10px auto 0;
+}
+
+.portfolio-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding: 60px 20px;
+}
+
+.portfolio-case {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+  background: #090B10;
+}
+
+.case-background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.case-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  filter: saturate(0.8) brightness(0.7);
+  transition: transform 1s ease;
+}
+
+.portfolio-case:hover .case-bg-img {
+  transform: scale(1.05);
+}
+
+.case-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #090B10 30%, transparent 100%);
+}
+
+.portfolio-case.reverse .case-overlay {
+  background: linear-gradient(to left, #090B10 30%, transparent 100%);
+}
+
+.case-container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 60px;
+  gap: 40px;
+}
+
+.portfolio-case.reverse { flex-direction: row-reverse; }
+.portfolio-case.reverse .case-container { flex-direction: row-reverse; }
+
+.case-info {
+  flex: 1.2;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.portfolio-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  background: rgba(138, 43, 226, 0.2);
+  color: #c084fc;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.portfolio-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.portfolio-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.portfolio-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.portfolio-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.case-visual {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  perspective: 2000px;
+}
+
+.mockup-window {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: transform 0.5s ease;
+}
+
+.portfolio-case.reverse .mockup-window {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+.portfolio-case:hover .mockup-window {
+  transform: rotateY(0) rotateX(0) scale(1.02);
+}
+
+.mockup-header {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dots { display: flex; gap: 8px; }
+.dots span {
+  width: 12px; height: 12px; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.url-bar {
+  flex: 1;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 0.75rem;
+  padding: 6px 0;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.mockup-body {
+  height: calc(100% - 40px);
+  background: #000;
+}
+
+.fadetime-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+@media (max-width: 1024px) {
+  .case-container {
+    flex-direction: column !important;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+  
+  .case-overlay {
+    background: linear-gradient(to bottom, #090B10 30%, transparent 100%);
+  }
+  
+  .portfolio-case.reverse .case-overlay {
+    background: linear-gradient(to bottom, #090B10 30%, transparent 100%);
+  }
+
+  .portfolio-title {
+    font-size: 2.2rem;
+  }
+  
+  .mockup-window {
+    transform: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-features {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+

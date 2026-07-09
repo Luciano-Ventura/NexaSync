@@ -1,0 +1,36 @@
+.differentials-section {
+  text-align: center;
+}
+
+.differentials-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.differential-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.differential-item:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-purple);
+}
+
+.diff-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  padding: 8px;
+}
