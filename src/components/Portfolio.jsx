@@ -3,6 +3,12 @@ import React from 'react';
 const Portfolio = () => {
   const projects = [
     {
+      title: "Lumière Clínica",
+      desc: "Landing Page de altíssima conversão para clínica de estética de alto padrão, focada em agendamentos via WhatsApp.",
+      link: "#",
+      tag: "Landing Page"
+    },
+    {
       title: "Fadetime",
       desc: "Plataforma de gestão para barbearias, focada em recorrência e automação de agendamentos.",
       link: "https://fadetime.vercel.app/",
