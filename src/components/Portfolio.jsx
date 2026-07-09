@@ -5,7 +5,7 @@ const Portfolio = () => {
     {
       title: "Lumière Clínica",
       desc: "Landing Page de altíssima conversão para clínica de estética de alto padrão, focada em agendamentos via WhatsApp.",
-      link: "#",
+      link: "https://lp-lumiere-clinic.vercel.app",
       tag: "Landing Page"
     },
     {
