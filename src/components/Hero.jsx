@@ -33,21 +33,67 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Decorative Asymmetric Element */}
+      {/* Visual representation on the right side */}
       <div style={{
         position: 'absolute',
-        right: '0',
+        right: '5%',
         top: '50%',
         transform: 'translateY(-50%)',
-        width: '400px',
-        height: '400px',
-        border: '1px solid var(--glass-border)',
-        borderRight: 'none',
-        borderBottom: 'none',
-        background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%)',
+        width: '40%',
+        maxWidth: '500px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
         zIndex: -1,
-        borderRadius: '8px 0 0 0'
-      }}></div>
+        opacity: 0.8
+      }}>
+        <div style={{
+          background: 'linear-gradient(145deg, var(--glass-bg) 0%, rgba(15, 17, 21, 0.8) 100%)',
+          border: '1px solid var(--glass-border)',
+          borderRadius: '12px',
+          padding: '24px',
+          boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+          transform: 'rotate(-2deg)',
+        }}>
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ef4444' }}></div>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#eab308' }}></div>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: 'var(--emerald)' }}></div>
+          </div>
+          <div style={{ width: '100%', height: '8px', background: 'var(--glass-border)', borderRadius: '4px', marginBottom: '12px' }}></div>
+          <div style={{ width: '70%', height: '8px', background: 'var(--glass-border)', borderRadius: '4px', marginBottom: '24px' }}></div>
+          
+          <div style={{ display: 'flex', gap: '12px' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '8px', background: 'rgba(16, 185, 129, 0.2)', border: '1px solid rgba(16, 185, 129, 0.5)' }}></div>
+            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px', justifyContent: 'center' }}>
+              <div style={{ width: '80%', height: '6px', background: 'var(--glass-border)', borderRadius: '3px' }}></div>
+              <div style={{ width: '50%', height: '6px', background: 'var(--glass-border)', borderRadius: '3px' }}></div>
+            </div>
+          </div>
+        </div>
+        
+        <div style={{
+          background: 'linear-gradient(145deg, var(--glass-bg) 0%, rgba(15, 17, 21, 0.8) 100%)',
+          border: '1px solid var(--emerald)',
+          borderRadius: '12px',
+          padding: '16px',
+          width: '70%',
+          alignSelf: 'flex-end',
+          boxShadow: '0 10px 30px rgba(16, 185, 129, 0.1)',
+          transform: 'rotate(2deg) translateY(-10px)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '12px'
+        }}>
+          <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--emerald)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0f1115" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>
+            <div style={{ fontSize: '0.9rem', color: 'var(--off-white)', fontWeight: '600' }}>Automação Concluída</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--emerald)' }}>+ R$ 2.450,00 gerados</div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
