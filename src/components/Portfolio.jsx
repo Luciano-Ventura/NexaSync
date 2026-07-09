@@ -5,7 +5,7 @@ const Portfolio = () => {
     {
       title: "Fadetime",
       desc: "Plataforma de gestão para barbearias, focada em recorrência e automação de agendamentos.",
-      link: "#", // Mantido sem link no prompt
+      link: "https://fadetime.vercel.app/",
       tag: "SaaS / CRM"
     },
     {
