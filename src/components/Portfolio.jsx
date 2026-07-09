@@ -6,25 +6,29 @@ const Portfolio = () => {
       title: "Lumière Clínica",
       desc: "Landing Page de altíssima conversão para clínica de estética de alto padrão, focada em agendamentos via WhatsApp.",
       link: "https://lp-lumiere-clinic.vercel.app",
-      tag: "Landing Page"
+      tag: "Landing Page",
+      image: "/images/proj_lumiere.png"
     },
     {
       title: "Fadetime",
       desc: "Plataforma de gestão para barbearias, focada em recorrência e automação de agendamentos.",
       link: "https://fadetime.vercel.app/",
-      tag: "SaaS / CRM"
+      tag: "SaaS / CRM",
+      image: "/images/proj_fadetime.png"
     },
     {
       title: "Zelare",
       desc: "Sistema inteligente para gestão de prestadores de serviços.",
       link: "https://zelare.vercel.app/",
-      tag: "Site Institucional"
+      tag: "Site Institucional",
+      image: "/images/proj_zelare.png"
     },
     {
       title: "EventWall",
       desc: "Plataforma de interação para eventos com mural de memórias (MemoryWall) em tempo real.",
       link: "https://wallmemory.vercel.app/",
-      tag: "MicroSaaS"
+      tag: "MicroSaaS",
+      image: "/images/proj_eventwall.png"
     }
   ];
 
@@ -36,25 +40,51 @@ const Portfolio = () => {
       <div style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '40px'
+        gap: '80px',
+        marginTop: '60px'
       }}>
         {projects.map((proj, idx) => (
-          <div key={idx} className="premium-card" style={{ display: 'flex', flexDirection: 'column', gap: '16px', borderLeft: '4px solid var(--emerald)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px' }}>
-              <div>
-                <span style={{ 
-                  background: 'rgba(16, 185, 129, 0.1)', 
-                  color: 'var(--emerald)', 
-                  padding: '4px 12px', 
-                  borderRadius: '16px',
-                  fontSize: '0.8rem',
-                  fontWeight: '600',
-                  letterSpacing: '0.5px',
-                  textTransform: 'uppercase'
-                }}>{proj.tag}</span>
-                <h3 style={{ fontSize: '2rem', marginTop: '16px', marginBottom: '8px' }}>{proj.title}</h3>
-                <p style={{ color: 'var(--muted-gray)', maxWidth: '600px' }}>{proj.desc}</p>
+          <div key={idx} className="premium-card flex-col-mobile" style={{ 
+            display: 'flex', 
+            flexDirection: idx % 2 !== 0 ? 'row-reverse' : 'row',
+            alignItems: 'center', 
+            gap: '40px', 
+            padding: '40px',
+            borderLeft: idx % 2 === 0 ? '4px solid var(--emerald)' : 'none',
+            borderRight: idx % 2 !== 0 ? '4px solid var(--emerald)' : 'none'
+          }}>
+            
+            {/* Image Side */}
+            <div style={{ flex: '1', width: '100%' }}>
+              <div style={{ 
+                borderRadius: '8px', 
+                overflow: 'hidden', 
+                boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+                border: '1px solid var(--glass-border)'
+              }}>
+                <img 
+                  src={proj.image} 
+                  alt={`Screenshot do projeto ${proj.title}`} 
+                  style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+                />
               </div>
+            </div>
+
+            {/* Text Side */}
+            <div style={{ flex: '1', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+              <span style={{ 
+                background: 'rgba(16, 185, 129, 0.1)', 
+                color: 'var(--emerald)', 
+                padding: '4px 12px', 
+                borderRadius: '16px',
+                fontSize: '0.85rem',
+                fontWeight: '600',
+                letterSpacing: '0.5px',
+                textTransform: 'uppercase'
+              }}>{proj.tag}</span>
+              
+              <h3 style={{ fontSize: '2.5rem', marginTop: '16px', marginBottom: '16px' }}>{proj.title}</h3>
+              <p style={{ color: 'var(--muted-gray)', fontSize: '1.1rem', marginBottom: '32px', lineHeight: '1.7' }}>{proj.desc}</p>
               
               <a href={proj.link} target={proj.link !== '#' ? '_blank' : '_self'} rel="noreferrer" className="btn-secondary">
                 Ver Projeto
@@ -64,6 +94,7 @@ const Portfolio = () => {
                 </svg>
               </a>
             </div>
+            
           </div>
         ))}
       </div>
